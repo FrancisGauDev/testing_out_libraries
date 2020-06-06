@@ -23,8 +23,7 @@ gameDisplay = pygame.display.set_mode((displayW,displayH))
 pygame.display.set_caption('Animation Testing')
 clock = pygame.time.Clock()
 runImg = pygame.image.load('Pygame\\Graphics\\Sprites\\tile0.png')
-print(__file__)
-print(os.getcwd())
+
 for image in os.listdir(spritePath):
     name = os.fsdecode(image)
     if name.endswith(".png"):
@@ -44,6 +43,7 @@ while not crashed:
     runImg = pygame.image.load('Pygame\\Graphics\\Sprites\\' + images[frame])
     gameDisplay.fill(white)
     runner(userX, userY, runImg)
+    pygame.draw.rect(gameDisplay,(0,0,255),(displayW - 10, displayH - 10, 10,10))
     pygame.display.update()
     clock.tick(10)
 
