@@ -18,12 +18,13 @@ userY = 0
 frame = 0
 
 filePath = str(pathlib.Path().absolute())
-spritePath = os.fsencode(filePath +  '\\Sprites')
+spritePath = os.fsencode(filePath +  '\\Pygame\\Graphics\\Sprites\\')
 gameDisplay = pygame.display.set_mode((displayW,displayH))
 pygame.display.set_caption('Animation Testing')
 clock = pygame.time.Clock()
-runImg = pygame.image.load('Sprites\\tile0.png')
-
+runImg = pygame.image.load('Pygame\\Graphics\\Sprites\\tile0.png')
+print(__file__)
+print(os.getcwd())
 for image in os.listdir(spritePath):
     name = os.fsdecode(image)
     if name.endswith(".png"):
@@ -40,7 +41,7 @@ while not crashed:
         frame += 1
     else:
         frame = 0
-    runImg = pygame.image.load('Sprites\\' + images[frame])
+    runImg = pygame.image.load('Pygame\\Graphics\\Sprites\\' + images[frame])
     gameDisplay.fill(white)
     runner(userX, userY, runImg)
     pygame.display.update()
