@@ -36,14 +36,19 @@ while not crashed:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             crashed = True
+    
+    gameDisplay.fill(white)
+    
     if(frame != len(images) -1):
         frame += 1
     else:
         frame = 0
     runImg = pygame.image.load('Pygame\\Graphics\\Sprites\\' + images[frame])
-    gameDisplay.fill(white)
+    
+    #All things that need to be drawn on the screen
     runner(userX, userY, runImg)
     pygame.draw.rect(gameDisplay,(0,0,255),(displayW - 10, displayH - 10, 10,10))
+
     pygame.display.update()
     clock.tick(10)
 
